@@ -5,34 +5,46 @@ const walletState = {
 
     // # base de datos de usuarios (simulada)
     users: [
-        { id: 1, name: "User 1", email: "demo@alkawallet.cl", password: "123", balance: 5000 },
-        { id: 2, name: "User 2", email: "demo2@alkawallet.cl", password: "123", balance: 3000 },
-        { id: 3, name: "User 3", email: "demo3@alkawallet.cl", password: "123", balance: 1000 }
+        { id: 1, name: "User 1", email: "demo@alkewallet.cl", password: "123", balance: 5000 }
     ],
 
     // # lista de movimientos
     transactions: [],
 
+    // # lista de contactos
+    contacts: [],
+
     // # cargamos datos del navegador
     init: function () {
-        const stored = localStorage.getItem("alkeWalletState");
+        const stored = localStorage.getItem("alkeWalletState_v4");
         if (stored) {
             const data = JSON.parse(stored);
             this.user = data.user;
             this.balance = data.balance;
-            this.transactions = data.transactions;
-            // # nota: aquí podríamos mezclar con datos reales
+            this.transactions = data.transactions || [];
+            this.contacts = data.contacts || [];
+            if (data.users) {
+                this.users = data.users;
+            }
         }
     },
 
     // # guardamos cambios en el navegador
     save: function () {
+        // # actualizamos usuario en la lista
+        if (this.user) {
+            const idx = this.users.findIndex(u => u.email === this.user.email);
+            if (idx !== -1) this.users[idx] = this.user;
+        }
+
         const data = {
             user: this.user,
             balance: this.balance,
-            transactions: this.transactions
+            transactions: this.transactions,
+            contacts: this.contacts,
+            users: this.users
         };
-        localStorage.setItem("alkeWalletState", JSON.stringify(data));
+        localStorage.setItem("alkeWalletState_v4", JSON.stringify(data));
     }
 };
 

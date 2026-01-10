@@ -20,10 +20,95 @@
             </div>
         </div>
 
-        <div class="d-grid gap-2">
-            <a href="deposit.html" class="btn btn-success btn-lg">Depositar</a>
-            <a href="sendmoney.html" class="btn btn-primary btn-lg">Enviar Dinero</a>
-            <a href="transactions.html" class="btn btn-info btn-lg">Historial</a>
+        <!-- # menú acordeón -->
+        <div class="accordion" id="walletAccordion">
+            
+            <!-- # sección depositar -->
+            <div class="accordion-item">
+                <h2 class="accordion-header">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseDeposit">
+                        Depositar
+                    </button>
+                </h2>
+                <div id="collapseDeposit" class="accordion-collapse collapse" data-bs-parent="#walletAccordion">
+                    <div class="accordion-body">
+                        <form id="deposit-form">
+                            <div class="mb-3">
+                                <label>Monto a depositar</label>
+                                <input type="number" id="deposit-amount" class="form-control" placeholder="0">
+                            </div>
+                            <button type="submit" class="btn btn-success">Confirmar Depósito</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+
+            <!-- # sección enviar dinero -->
+            <div class="accordion-item">
+                <h2 class="accordion-header">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSend">
+                        Enviar Dinero
+                    </button>
+                </h2>
+                <div id="collapseSend" class="accordion-collapse collapse" data-bs-parent="#walletAccordion">
+                    <div class="accordion-body">
+                        <form id="send-form">
+                            <div class="mb-3">
+                                <label>Contacto (Email)</label>
+                                <select id="transfer-contact" class="form-select">
+                                    <option value="" selected disabled>Seleccione un contacto</option>
+                                </select>
+                            </div>
+                            <div class="mb-3">
+                                <label>Monto</label>
+                                <input type="number" id="transfer-amount" class="form-control" placeholder="0">
+                            </div>
+                            <button type="submit" class="btn btn-primary">Enviar</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+
+            <!-- # sección historial -->
+            <div class="accordion-item">
+                <h2 class="accordion-header">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseHistory">
+                        Historial
+                    </button>
+                </h2>
+                <div id="collapseHistory" class="accordion-collapse collapse" data-bs-parent="#walletAccordion">
+                    <div class="accordion-body">
+                        <div id="transactions-list" class="list-group">
+                            <!-- # contenido dinámico -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- # sección contactos -->
+            <div class="accordion-item">
+                <h2 class="accordion-header">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseContacts">
+                        Contactos
+                    </button>
+                </h2>
+                <div id="collapseContacts" class="accordion-collapse collapse" data-bs-parent="#walletAccordion">
+                    <div class="accordion-body">
+                        <div class="card mb-3">
+                            <div class="card-body">
+                                <h6>Agregar Nuevo</h6>
+                                <form id="add-contact-form" class="d-flex gap-2">
+                                    <input type="text" id="contact-name" class="form-control" placeholder="Nombre" required>
+                                    <input type="email" id="contact-email" class="form-control" placeholder="Email" required>
+                                    <button type="submit" class="btn btn-primary">Guardar</button>
+                                </form>
+                            </div>
+                        </div>
+                        <div id="contacts-list" class="list-group"></div>
+                    </div>
+                </div>
+            </div>
+
         </div>
 
         <div class="mt-4">
@@ -36,6 +121,9 @@
     <script src="assets/js/config.js"></script>
     <script src="assets/js/ui.js"></script>
     <script src="assets/js/auth.js"></script>
+    <script src="assets/js/wallet.js"></script>
+    <script src="assets/js/transactions.js"></script>
+    <script src="assets/js/contacts.js"></script>
 </body>
 
 </html>

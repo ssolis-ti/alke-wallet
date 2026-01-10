@@ -24,6 +24,7 @@ alke-wallet/
 ├── deposit.html        # Pantalla de depósito
 ├── sendmoney.html      # Pantalla de envío
 ├── transactions.html   # Pantalla de historial
+├── contacts.html       # Pantalla de contactos
 │
 ├── assets/
 │   ├── css/            # Hoja de estilos
@@ -35,6 +36,7 @@ alke-wallet/
 │   │   ├── auth.js     # Lógica de seguridad
 │   │   ├── wallet.js   # Lógica de dinero
 │   │   ├── transactions.js # Lógica de historial
+│   │   ├── contacts.js # Lógica de contactos
 │   │   └── ui.js       # Lógica visual
 │   │
 │   └── libs/           # Librerías de terceros (vacío, usamos CDN)
@@ -52,6 +54,7 @@ alke-wallet/
 4.  **`deposit.html`**: Formulario simple para sumar dinero a la cuenta.
 5.  **`sendmoney.html`**: Formulario para restar dinero (simulando un envío).
 6.  **`transactions.html`**: Lista dinámica que muestra el historial de movimientos.
+7.  **`contacts.html`**: Pantalla para gestionar la lista de contactos.
 
 ### Javascript (Lógica)
 1.  **`config.js`**: 
@@ -69,6 +72,9 @@ alke-wallet/
 5.  **`transactions.js`**: 
     *   **Qué es:** El lector de historial.
     *   **Función:** Recorre la lista de transacciones guardada y genera filas en la tabla/lista HTML.
+6.  **`contacts.js`**:
+    *   **Qué es:** El gestor de agenda.
+    *   **Función:** Permite agregar y listar contactos guardados.
 
 ## 4. Git y Flujo de Trabajo (Ramas)
 
@@ -81,5 +87,5 @@ El proyecto se desarrolló utilizando **Git** con una estrategia de **Feature Br
 4.  **`feature/depositos`**: Aquí se creó la lógica de sumar dinero.
 5.  **`feature/envios`**: Aquí se creó la lógica de restar dinero.
 6.  **`feature/transacciones`**: Aquí se creó el historial.
-
-
+7.  **`feature/contactos`**: Aquí se creó la lógica de agenda y `contacts.html`.
+8.  **`feature/estilos`**: Implementación de diseño robótico y mejoras de UI.

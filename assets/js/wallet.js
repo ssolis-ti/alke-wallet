@@ -1,5 +1,18 @@
 // # lógica de depósitos y envíos
 $(document).ready(function () {
+    // # función para cargar contactos
+    const loadTransferContacts = () => {
+        const contactSelect = $('#transfer-contact');
+        contactSelect.find('option:not(:first)').remove();
+        walletState.contacts.forEach(c => {
+            contactSelect.append(`<option value="${c.email}">${c.name}</option>`);
+        });
+    };
+
+    // # cargar al inicio y al abrir la sección
+    loadTransferContacts();
+    $('#collapseSend').on('show.bs.collapse', loadTransferContacts);
+
     // # formulario de depósito
     $('#deposit-form').on('submit', function (e) {
         e.preventDefault();
@@ -15,9 +28,10 @@ $(document).ready(function () {
             // # creamos la transacción
             const transaction = {
                 id: Date.now(),
+                timestamp: Date.now(), // # timestamp para ordenar
                 type: 'deposit', // # tipo de operación
                 amount: amount,
-                date: new Date().toLocaleDateString(),
+                date: new Date().toLocaleString('es-CL'), // # fecha y hora
                 description: 'Depósito de fondos'
             };
 
@@ -27,8 +41,10 @@ $(document).ready(function () {
             // # guardamos todo
             walletState.save();
 
+            // # actualizamos ui y limpiamos
+            startUI();
+            $('#deposit-form')[0].reset();
             alert(`Depósito exitoso. Nuevo saldo: $${walletState.balance}`);
-            window.location.href = 'menu.html';
         } else {
             alert('Ingrese un monto válido');
         }
@@ -41,6 +57,11 @@ $(document).ready(function () {
         const contact = $('#transfer-contact').val();
         const amount = parseInt($('#transfer-amount').val());
 
+        if (!contact) {
+            alert("Por favor seleccione un contacto");
+            return;
+        }
+
         // # validamos saldo
         if (validateTransfer(amount)) {
             // # restamos del saldo
@@ -50,15 +71,17 @@ $(document).ready(function () {
             // # registramos el gasto
             walletState.transactions.push({
                 id: Date.now(),
+                timestamp: Date.now(), // # timestamp para ordenar
                 type: 'payment',
                 amount: -amount, // # negativo porque es gasto
-                date: new Date().toLocaleDateString(),
+                date: new Date().toLocaleString('es-CL'), // # fecha y hora
                 description: `Envío a ${contact}`
             });
 
             walletState.save();
+            startUI();
+            $('#send-form')[0].reset();
             alert('Transferencia realizada con éxito');
-            window.location.href = 'menu.html';
         }
     });
 
