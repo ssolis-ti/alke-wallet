@@ -3,11 +3,11 @@
 Este documento detalla la arquitectura, estructura y flujo de trabajo del proyecto Alke Wallet.
 
 ## 1. Arquitectura del Proyecto
-El proyecto sigue una arquitectura Modular y Basada en Componentes. Se separa claramente la Estructura (HTML), el Estilo (CSS) y la Lógica (Javascript).
+El proyecto sigue una arquitectura Modular, Se separa claramente la Estructura (HTML), el Estilo (CSS) y la Lógica (Javascript).
 
 ### Conceptos Clave:
 *   **Estado Centralizado:** Todo el estado de la aplicación (usuario, saldo, movimientos) vive en un único objeto (`walletState` en `config.js`) y se guarda en el navegador (`localStorage`).
-*   **Separación de Intereses (SoC):**
+*   **Separación de Intereses**
     *   `auth.js`: Solo maneja login/logout.
     *   `wallet.js`: Solo maneja dinero (depósitos/envíos).
     *   `ui.js`: Solo maneja lo que se ve en pantalla.
@@ -45,7 +45,7 @@ alke-wallet/
 
 ## 3. Descripción de Archivos
 
-### 🌐 HTML (Vistas)
+### HTML (Vistas)
 1.  **`index.html`**: No tiene contenido visible. Su única función es redirigir automáticamente al usuario al login si entra a la raíz.
 2.  **`login.html`**: Formulario de entrada. Pide correo y contraseña.
 3.  **`menu.html`**: La pantalla principal. Muestra el saldo actual, saludo al usuario y botones para navegar a las otras operaciones.
@@ -53,7 +53,7 @@ alke-wallet/
 5.  **`sendmoney.html`**: Formulario para restar dinero (simulando un envío).
 6.  **`transactions.html`**: Lista dinámica que muestra el historial de movimientos.
 
-### ⚙️ Javascript (Lógica)
+### Javascript (Lógica)
 1.  **`config.js`**: 
     *   **Qué es:** El archivo de configuración y base de datos simulada.
     *   **Función:** Inicializa la app, carga datos guardados y define el objeto `walletState`.
