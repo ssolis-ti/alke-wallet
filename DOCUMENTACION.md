@@ -15,7 +15,7 @@ El proyecto sigue una arquitectura Modular, Se separa claramente la Estructura (
 
 ## 2. Estructura de Carpetas
 
-```text
+
 alke-wallet/
 │
 ├── index.html          # Puerta de entrada (redirección)
@@ -29,21 +29,21 @@ alke-wallet/
 ├── assets/
 │   ├── css/            # Hoja de estilos
 │   │   ├── main.css    # Estilos generales
-│   │   └── forms.css   # Estilos específicos de formularios
+│   │   
 │   │
 │   ├── js/             # Lógica de programación (Módulos)
-│   │   ├── config.js   # "Cerebro" de la app (Estado y Datos)
-│   │   ├── auth.js     # Lógica de seguridad
-│   │   ├── wallet.js   # Lógica de dinero
-│   │   ├── transactions.js # Lógica de historial
-│   │   ├── contacts.js # Lógica de contactos
-│   │   └── ui.js       # Lógica visual
-│   │
-│   └── libs/           # Librerías de terceros (vacío, usamos CDN)
-│       └── (jquery / bootstrap)
+│       ├── config.js   # "Cerebro" de la app (Estado y Datos)
+│       ├── auth.js     # Lógica de seguridad
+│       ├── wallet.js   # Lógica de dinero
+│       ├── transactions.js # Lógica de historial
+│       ├── contacts.js # Lógica de contactos
+│       └── ui.js       # Lógica visual
+│   
+│   
+│       
 │
 └── DOCUMENTACION.md    # Este archivo
-```
+
 
 ## 3. Descripción de Archivos
 
@@ -78,7 +78,6 @@ alke-wallet/
 
 ## 4. Git y Flujo de Trabajo (Ramas)
 
-El proyecto se desarrolló utilizando **Git** con una estrategia de **Feature Branching** (Ramas por Funcionalidad). Esto mantiene el trabajo ordenado y seguro.
 
 ### Ramas Creadas:
 1.  **`main`**: La rama principal. Contiene el código final, probado y funcional.
