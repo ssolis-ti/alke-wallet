@@ -9,3 +9,5 @@ Estructura simple para proyecto de billetera virtual.
 - `deposit.html`: Carga de saldo
 - `sendmoney.html`: Transferencias
 - `transactions.html`: Historial
+
+Usuario de prueba: demo@alkawallet.cl / 123
