@@ -19,31 +19,27 @@ El proyecto sigue una arquitectura Modular, Se separa claramente la Estructura (
 
 alke-wallet/
 │
-├── index.html          # Puerta de entrada (redirección)
-├── login.html          # Pantalla de inicio de sesión
-├── menu.html           # Dashboard principal (resumen)
-├── deposit.html        # Pantalla de depósito
-├── sendmoney.html      # Pantalla de envío
-├── transactions.html   # Pantalla de historial
-├── contacts.html       # Pantalla de contactos
+├── index.html            # Puerta de entrada (redirección)
+├── login.html            # Pantalla de inicio de sesión
+├── menu.html             # Dashboard principal (resumen)
+├── deposit.html          # Pantalla de depósito
+├── sendmoney.html        # Pantalla de envío
+├── transactions.html     # Pantalla de historial
+├── contacts.html         # Pantalla de contactos
 │
 ├── assets/
-│   ├── css/            # Hoja de estilos
-│   │   ├── main.css    # Estilos generales
-│   │   
+│   ├── css/
+│   │   └── main.css      # Estilos generales
 │   │
-│   ├── js/             # Lógica de programación (Módulos)
-│       ├── config.js   # "Cerebro" de la app (Estado y Datos)
-│       ├── auth.js     # Lógica de seguridad
-│       ├── wallet.js   # Lógica de dinero
+│   └── js/               # Lógica de programación (módulos)
+│       ├── config.js     # "Cerebro" de la app (estado y datos)
+│       ├── auth.js       # Lógica de seguridad
+│       ├── wallet.js     # Lógica de dinero
 │       ├── transactions.js # Lógica de historial
-│       ├── contacts.js # Lógica de contactos
-│       └── ui.js       # Lógica visual
-│   
-│   
-│       
+│       ├── contacts.js   # Lógica de contactos
+│       └── ui.js         # Lógica visual
 │
-└── DOCUMENTACION.md    # Este archivo
+└── DOCUMENTACION.md      # Documentación del proyecto
 
 
 ## 3. Descripción de Archivos
