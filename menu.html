@@ -1,0 +1,41 @@
+<!-- # menu - main dashboard -->
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Menu - Alke Wallet</title>
+    <link rel="stylesheet" href="assets/libs/bootstrap.min.css">
+    <link rel="stylesheet" href="assets/css/main.css">
+</head>
+
+<body>
+    <div class="container mt-4">
+        <h1>Buenos días, <span id="user-name">Usuario</span></h1>
+
+        <div class="card my-4">
+            <div class="card-body">
+                <h3>Saldo: <span id="user-balance">$0</span></h3>
+            </div>
+        </div>
+
+        <div class="d-grid gap-2">
+            <a href="deposit.html" class="btn btn-success btn-lg">Depositar</a>
+            <a href="sendmoney.html" class="btn btn-primary btn-lg">Enviar Dinero</a>
+            <a href="transactions.html" class="btn btn-info btn-lg">Historial</a>
+        </div>
+
+        <div class="mt-4">
+            <button id="logout-btn" class="btn btn-outline-danger">Salir</button>
+        </div>
+    </div>
+
+    <script src="assets/libs/jquery.min.js"></script>
+    <script src="assets/libs/bootstrap.min.js"></script>
+    <script src="assets/js/config.js"></script>
+    <script src="assets/js/ui.js"></script>
+    <script src="assets/js/auth.js"></script>
+</body>
+
+</html>

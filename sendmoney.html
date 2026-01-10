@@ -1,0 +1,38 @@
+<!-- # send money page -->
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Enviar Dinero - Alke Wallet</title>
+    <link rel="stylesheet" href="assets/libs/bootstrap.min.css">
+    <link rel="stylesheet" href="assets/css/main.css">
+</head>
+
+<body>
+    <div class="container mt-4">
+        <h1>Enviar Dinero</h1>
+
+        <form id="send-form" class="my-4">
+            <div class="mb-3">
+                <label>Contacto (Email)</label>
+                <input type="email" id="transfer-contact" class="form-control" placeholder="email@ejemplo.com">
+            </div>
+            <div class="mb-3">
+                <label>Monto</label>
+                <input type="number" id="transfer-amount" class="form-control" placeholder="0">
+            </div>
+            <button type="submit" class="btn btn-primary">Enviar</button>
+        </form>
+
+        <a href="menu.html" class="btn btn-secondary">Volver</a>
+    </div>
+
+    <script src="assets/libs/jquery.min.js"></script>
+    <script src="assets/libs/bootstrap.min.js"></script>
+    <script src="assets/js/config.js"></script>
+    <script src="assets/js/wallet.js"></script>
+</body>
+
+</html>
