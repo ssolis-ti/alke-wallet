@@ -17,6 +17,7 @@ El proyecto sigue una arquitectura Modular, Se separa claramente la Estructura (
 ## 2. Estructura de Carpetas
 
 
+```text
 alke-wallet/
 │
 ├── index.html            # Puerta de entrada (redirección)
@@ -40,6 +41,7 @@ alke-wallet/
 │       └── ui.js         # Lógica visual
 │
 └── DOCUMENTACION.md      # Documentación del proyecto
+```
 
 
 ## 3. Descripción de Archivos
