@@ -27,7 +27,7 @@ $(document).ready(function () {
         } else {
             console.log("Fallo de autenticación");
             // # avisamos si falló
-            alert('Credenciales inválidas. Prueba con user1@example.com / 123');
+            alert('Credenciales inválidas. Prueba con demo@alkawallet.cl / 123');
         }
     });
 

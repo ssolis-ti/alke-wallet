@@ -5,9 +5,9 @@ const walletState = {
 
     // # base de datos de usuarios (simulada)
     users: [
-        { id: 1, name: "User 1", email: "user1@example.com", password: "123", balance: 5000 },
-        { id: 2, name: "User 2", email: "user2@example.com", password: "123", balance: 3000 },
-        { id: 3, name: "User 3", email: "user3@example.com", password: "123", balance: 1000 }
+        { id: 1, name: "User 1", email: "demo@alkawallet.cl", password: "123", balance: 5000 },
+        { id: 2, name: "User 2", email: "demo2@alkawallet.cl", password: "123", balance: 3000 },
+        { id: 3, name: "User 3", email: "demo3@alkawallet.cl", password: "123", balance: 1000 }
     ],
 
     // # lista de movimientos
