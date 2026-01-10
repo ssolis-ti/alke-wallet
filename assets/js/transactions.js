@@ -1,24 +1,24 @@
-// # historial de transacciones - visualizacion de movimientos - conecta con transactions.html y config.js
+// # lógica del historial
 $(document).ready(function () {
-    // # verificar sesion - bloquea acceso si no hay usuario - conecta con config.js
+    // # validamos sesión
     if (!walletState.user) {
         window.location.href = 'login.html';
         return;
     }
 
     const list = $('#transactions-list');
-    list.empty(); // # limpia estado anterior
+    list.empty(); // # limpiamos la lista
 
-    // # obtener movimientos - lee el array de transacciones guardado - conecta con walletState.transactions
+    // # sacamos las transacciones del estado
     const txs = walletState.transactions;
 
     if (txs.length === 0) {
         list.append('<div class="list-group-item">No hay movimientos registrados.</div>');
     } else {
-        // # renderizar lista - recorre y crea elementos html para cada movimiento - conecta con el dom
-        // # ordenamiento - muestra primero lo mas reciente - logica de array sort
+        // # recorremos y mostramos cada movimiento
+        // # ordenamos: lo más nuevo primero
         txs.sort((a, b) => b.id - a.id).forEach(tx => {
-            // # estilos condicionales - verde para ingreso, rojo para egreso - conecta con bootstrap classes
+            // # verde si entra, rojo si sale
             const colorClass = tx.type === 'deposit' ? 'text-success' : 'text-danger';
             const symbol = tx.type === 'deposit' ? '+' : '';
 

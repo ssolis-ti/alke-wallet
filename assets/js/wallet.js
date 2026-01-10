@@ -1,30 +1,30 @@
-// # operaciones de billetera - gestiona depositos y envios - conecta con deposit.html y sendmoney.html
+// # lógica de depósitos y envíos
 $(document).ready(function () {
-    // # logica de deposito - maneja el formulario de ingreso de dinero - conecta con deposit.html
+    // # formulario de depósito
     $('#deposit-form').on('submit', function (e) {
         e.preventDefault();
 
-        // # capturar monto - lee el valor ingresado - conecta con input deposit-amount
+        // # obtenemos el monto
         const amount = parseInt($('#deposit-amount').val());
 
         if (amount > 0) {
-            // # actualizar estado - suma el monto al saldo del usuario - conecta con walletState en config.js
+            // # sumamos al saldo
             walletState.user.balance += amount;
             walletState.balance = walletState.user.balance;
 
-            // # crear transaccion - genera el registro del movimiento - conecta con el historial
+            // # creamos la transacción
             const transaction = {
                 id: Date.now(),
-                type: 'deposit', // # tipo operacion
+                type: 'deposit', // # tipo de operación
                 amount: amount,
                 date: new Date().toLocaleDateString(),
                 description: 'Depósito de fondos'
             };
 
-            // # guardar transaccion - añade al array de movimientos - conecta con walletState.transactions
+            // # guardamos en historial
             walletState.transactions.push(transaction);
 
-            // # persistir datos - guarda todo en storage - conecta con config.js
+            // # guardamos todo
             walletState.save();
 
             alert(`Depósito exitoso. Nuevo saldo: $${walletState.balance}`);
@@ -34,24 +34,24 @@ $(document).ready(function () {
         }
     });
 
-    // # logica de transferencia - maneja el envio de dinero a terceros - conecta con sendmoney.html
+    // # formulario de transferencia
     $('#send-form').on('submit', function (e) {
         e.preventDefault();
 
         const contact = $('#transfer-contact').val();
         const amount = parseInt($('#transfer-amount').val());
 
-        // # validacion saldo - revisa si alcanza el dinero - llama a la funcion auxiliar validateTransfer
+        // # validamos saldo
         if (validateTransfer(amount)) {
-            // # descontar saldo - resta el monto al usuario actual - conecta con walletState
+            // # restamos del saldo
             walletState.user.balance -= amount;
             walletState.balance = walletState.user.balance;
 
-            // # registrar envio - guarda el movimiento como gasto - conecta con historial
+            // # registramos el gasto
             walletState.transactions.push({
                 id: Date.now(),
                 type: 'payment',
-                amount: -amount, // # valor negativo para indicar gasto
+                amount: -amount, // # negativo porque es gasto
                 date: new Date().toLocaleDateString(),
                 description: `Envío a ${contact}`
             });
@@ -62,7 +62,7 @@ $(document).ready(function () {
         }
     });
 
-    // # funcion auxiliar - verifica reglas de negocio para transferir - conecta con logica interna
+    // # validaciones extra
     const validateTransfer = (amount) => {
         if (amount <= 0) {
             alert("El monto debe ser positivo");

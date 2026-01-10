@@ -1,19 +1,19 @@
-// # actualizaciones de interfaz - renderiza datos del usuario en pantalla - conecta con menu.html y config.js
+// # lógica de interfaz
 const startUI = () => {
-    // # verificar sesion - asegura que haya un usuario logueado - conecta con walletState en config.js
+    // # si no hay usuario, volvemos al login
     if (!walletState.user) {
         window.location.href = 'login.html';
         return;
     }
 
-    // # actualizar dom - muestra nombre y saldo actualizados - conecta con elementos html por id
+    // # actualizamos nombre y saldo en pantalla
     $('#user-name').text(walletState.user.name);
-    // # formateo de moneda - muestra el saldo con formato local - conecta con el span user-balance
+    // # formato de moneda local (clp)
     $('#user-balance').text(`$${walletState.user.balance.toLocaleString('es-CL')}`);
 };
 
 $(document).ready(function () {
-    // # inicializacion condicional - solo corre si existen elementos de usuario - conecta con la carga de la pagina
+    // # solo iniciamos si hay elementos de usuario
     if ($('#user-name').length) {
         startUI();
     }

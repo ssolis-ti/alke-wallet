@@ -1,19 +1,19 @@
-// # configuracion del estado - gestiona los datos de la app - conecta con localstorage y toda la app
+// # configuración y estado global
 const walletState = {
-    // # usuario activo - almacena la sesion actual del usuario logueado - conecta con auth.js y ui.js
+    // # usuario logueado
     activeUser: null,
 
-    // # base de datos simulada - contiene la lista de usuarios registrados - conecta con auth.js para validar credenciales
+    // # base de datos de usuarios (simulada)
     users: [
         { id: 1, name: "User 1", email: "user1@example.com", password: "123", balance: 5000 },
         { id: 2, name: "User 2", email: "user2@example.com", password: "123", balance: 3000 },
         { id: 3, name: "User 3", email: "user3@example.com", password: "123", balance: 1000 }
     ],
 
-    // # historial de transacciones - almacena los movimientos realizados - conecta con wallet.js y transactions.js
+    // # lista de movimientos
     transactions: [],
 
-    // # inicializacion - carga el estado guardado desde el navegador - conecta con localStorage al inicio
+    // # cargamos datos del navegador
     init: function () {
         const stored = localStorage.getItem("alkeWalletState");
         if (stored) {
@@ -21,11 +21,11 @@ const walletState = {
             this.user = data.user;
             this.balance = data.balance;
             this.transactions = data.transactions;
-            // # nota - se podrian fusionar usuarios aqui si fuera una app real
+            // # nota: aquí podríamos mezclar con datos reales
         }
     },
 
-    // # guardar estado - persiste los cambios en el navegador - conecta con localStorage en cada operacion
+    // # guardamos cambios en el navegador
     save: function () {
         const data = {
             user: this.user,
@@ -36,5 +36,5 @@ const walletState = {
     }
 };
 
-// # auto arranque - ejecuta la carga inicial de datos - conecta con el inicio de cualquier script
+// # iniciamos la app
 walletState.init();
