@@ -48,7 +48,7 @@ alke-wallet/
 
 ### HTML (Vistas)
 1.  **`index.html`**: No tiene contenido visible. Su única función es redirigir automáticamente al usuario al login si entra a la raíz.
-2.  **`login.html`**: Formulario de entrada. Pide correo y contraseña.
+2.  **`login.html`**: Formulario de entrada. Pide correo y contraseña. demo@alkewallet.cl / 123
 3.  **`menu.html`**: La pantalla principal. Muestra el saldo actual, saludo al usuario y botones para navegar a las otras operaciones.
 4.  **`deposit.html`**: Formulario simple para sumar dinero a la cuenta.
 5.  **`sendmoney.html`**: Formulario para restar dinero (simulando un envío).
