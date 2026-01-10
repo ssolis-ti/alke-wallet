@@ -1,9 +1,9 @@
 # Documentación Técnica: Alke Wallet
 
-Este documento detalla la arquitectura, estructura y flujo de trabajo del proyecto **Alke Wallet**. Está diseñado para ser fácil de entender para estudiantes y desarrolladores nuevos.
+Este documento detalla la arquitectura, estructura y flujo de trabajo del proyecto Alke Wallet.
 
 ## 1. Arquitectura del Proyecto
-El proyecto sigue una arquitectura **Modular y Basada en Componentes (Frontend Vanilla)**. Se separa claramente la **Estructura** (HTML), el **Estilo** (CSS) y la **Lógica** (Javascript).
+El proyecto sigue una arquitectura Modular y Basada en Componentes. Se separa claramente la Estructura (HTML), el Estilo (CSS) y la Lógica (Javascript).
 
 ### Conceptos Clave:
 *   **Estado Centralizado:** Todo el estado de la aplicación (usuario, saldo, movimientos) vive en un único objeto (`walletState` en `config.js`) y se guarda en el navegador (`localStorage`).
