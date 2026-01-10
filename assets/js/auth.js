@@ -1,40 +1,40 @@
-// # auth logic
+// # logica de autenticacion - maneja el inicio y cierre de sesion - conecta con login.html y config.js
 $(document).ready(function () {
-    // # login form submission
+    // # evento submit login - captura el envio del formulario - conecta con el form de login.html
     $('#login-form').on('submit', function (e) {
         e.preventDefault();
 
         console.log("Intento de login...");
 
-        // # get values
+        // # obtener valores - lee lo que escribio el usuario - conecta con los inputs del dom
         const email = $('#email').val().trim();
         const password = $('#password').val().trim();
 
         console.log("Email ingresado:", email);
 
-        // # validate credentials against config "db"
+        // # validacion - busca si el usuario existe en la 'base de datos' - conecta con walletState.users en config.js
         const user = walletState.users.find(u => u.email === email && u.password === password);
 
         if (user) {
             console.log("Login exitoso:", user.name);
-            // # set active user
+            // # establecer sesion - guarda el usuario activo en el estado global - conecta con walletState en config.js
             walletState.user = user;
-            walletState.balance = user.balance; // # load initial balance
+            walletState.balance = user.balance; // # carga saldo inicial
             walletState.save();
 
-            // # redirect
+            // # redireccion - envia al usuario al menu principal - conecta con menu.html
             window.location.href = 'menu.html';
         } else {
             console.log("Fallo de autenticación");
-            // # show error
+            // # feedback error - avisa al usuario si fallo - conecta con alert del navegador
             alert('Credenciales inválidas. Prueba con user1@example.com / 123');
         }
     });
 
-    // # logout logic (if present on page)
+    // # evento logout - cierra la sesion actual - conecta con el boton salir en menu.html
     $('#logout-btn').on('click', function () {
-        walletState.user = null;
-        walletState.save();
-        window.location.href = 'login.html';
+        walletState.user = null; // # limpia usuario
+        walletState.save(); // # guarda estado vacio
+        window.location.href = 'login.html'; // # redirecciona al login
     });
 });

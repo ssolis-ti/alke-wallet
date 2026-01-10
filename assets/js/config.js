@@ -1,19 +1,19 @@
-// # config - state and mock data
+// # configuracion del estado - gestiona los datos de la app - conecta con localstorage y toda la app
 const walletState = {
-    // # active user session
+    // # usuario activo - almacena la sesion actual del usuario logueado - conecta con auth.js y ui.js
     activeUser: null,
 
-    // # simulated database
+    // # base de datos simulada - contiene la lista de usuarios registrados - conecta con auth.js para validar credenciales
     users: [
         { id: 1, name: "User 1", email: "user1@example.com", password: "123", balance: 5000 },
         { id: 2, name: "User 2", email: "user2@example.com", password: "123", balance: 3000 },
         { id: 3, name: "User 3", email: "user3@example.com", password: "123", balance: 1000 }
     ],
 
-    // # transactions list
+    // # historial de transacciones - almacena los movimientos realizados - conecta con wallet.js y transactions.js
     transactions: [],
 
-    // # load state from local storage or use defaults
+    // # inicializacion - carga el estado guardado desde el navegador - conecta con localStorage al inicio
     init: function () {
         const stored = localStorage.getItem("alkeWalletState");
         if (stored) {
@@ -21,12 +21,11 @@ const walletState = {
             this.user = data.user;
             this.balance = data.balance;
             this.transactions = data.transactions;
-            // # keep mock users separate or merge if needed? 
-            // # for now, users list is static in code as "db"
+            // # nota - se podrian fusionar usuarios aqui si fuera una app real
         }
     },
 
-    // # save current state
+    // # guardar estado - persiste los cambios en el navegador - conecta con localStorage en cada operacion
     save: function () {
         const data = {
             user: this.user,
@@ -37,7 +36,5 @@ const walletState = {
     }
 };
 
-// # auto init on load
+// # auto arranque - ejecuta la carga inicial de datos - conecta con el inicio de cualquier script
 walletState.init();
-
-// # helpers can go here
