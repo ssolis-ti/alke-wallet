@@ -82,14 +82,4 @@ El proyecto se desarrolló utilizando **Git** con una estrategia de **Feature Br
 5.  **`feature/envios`**: Aquí se creó la lógica de restar dinero.
 6.  **`feature/transacciones`**: Aquí se creó el historial.
 
-### Flujo de Git utilizado:
-1.  Se crea una rama desde `main`: `git checkout -b feature/nueva-funcionalidad`
-2.  Se trabaja y hacen cambios.
-3.  Se guardan cambios: `git commit`
-4.  Se vuelve a `main` y se fusionan los cambios: `git merge feature/nueva-funcionalidad`
-5.  Se sube a la nube (GitHub): `git push`
 
-Este método asegura que cada parte del proyecto funcione bien aisladamente antes de unirse al proyecto completo.
-
----
-**Generado automáticamente por Antigravity para Alke Wallet.**
