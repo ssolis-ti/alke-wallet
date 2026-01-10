@@ -1,39 +1,184 @@
-/* # estilos generales */
+/* Importamos una fuente */
+@import url('https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap');
+
+:root {
+    /* Paleta de Colores Robot/Toxic */
+    --bg-color: #050505;           /* Negro casi absoluto */
+    --panel-bg: #0a0a0a;           /* Gris muy oscuro para tarjetas */
+    --neon-green: #39ff14;         /* Verde Principal */
+    --dim-green: #0f4d0f;          /* Verde oscuro para fondos tenues */
+    --text-color: #ccffcc;         /* Texto verde muy pálido */
+    --alert-color: #ff3333;        /* Rojo para errores/salidas */
+    
+    /* Estilos Reutilizables */
+    --font-robot: 'Share Tech Mono', monospace;
+    --neon-border: 1px solid var(--neon-green);
+    --neon-glow: 0 0 10px rgba(57, 255, 20, 0.5);
+    --neon-glow-strong: 0 0 20px rgba(57, 255, 20, 0.8);
+}
+
+/* Reset básico */
+* {
+    box-sizing: border-box;
+}
+
 body {
-    font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
-    background-color: #e9ecef;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    font-family: var(--font-robot);
+    margin: 0;
+    padding: 0;
+    line-height: 1.6;
+    /* Efecto sutil de líneas de escaneo (opcional) */
+    background-image: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.25) 50%), linear-gradient(90deg, rgba(255, 0, 0, 0.06), rgba(0, 255, 0, 0.02), rgba(0, 0, 255, 0.06));
+    background-size: 100% 2px, 3px 100%;
 }
 
-/* # contenedor estilo app */
-.container {
-    max-width: 500px;
-    background-color: #ffffff;
-    min-height: 100vh;
+/* Contenedor Principal */
+/* Asumiendo que usas un div o main para envolver el contenido */
+.container, main {
+    max-width: 600px;
+    margin: 40px auto;
+    padding: 30px;
+    background-color: var(--panel-bg);
+    border: var(--neon-border);
+    box-shadow: var(--neon-glow);
+    position: relative;
+}
+
+/* Títulos */
+h1, h2, h3 {
+    color: var(--neon-green);
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    text-align: center;
+    text-shadow: var(--neon-glow);
+    margin-bottom: 30px;
+    border-bottom: 1px dashed var(--dim-green);
+    padding-bottom: 10px;
+}
+
+/* Inputs y Formularios */
+input {
+    width: 100%;
+    padding: 15px;
+    margin-bottom: 20px;
+    background-color: #000;
+    border: 1px solid #333;
+    border-left: 5px solid var(--neon-green); /* Indicador lateral */
+    color: var(--neon-green);
+    font-family: var(--font-robot);
+    font-size: 1.1rem;
+    outline: none;
+    transition: all 0.3s ease;
+}
+
+input::placeholder {
+    color: var(--dim-green);
+    opacity: 0.7;
+}
+
+input:focus {
+    box-shadow: inset 0 0 15px var(--dim-green);
+    border-color: var(--neon-green);
+}
+
+/* Botones */
+button, .btn {
+    display: block;
+    width: 100%;
+    padding: 15px;
+    background: transparent;
+    border: var(--neon-border);
+    color: var(--neon-green);
+    font-family: var(--font-robot);
+    font-size: 1.2rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    text-align: center;
+    text-decoration: none;
+    margin-top: 10px;
+    position: relative;
+    overflow: hidden;
+}
+
+button:hover, .btn:hover {
+    background-color: var(--neon-green);
+    color: var(--bg-color);
+    box-shadow: var(--neon-glow-strong);
+}
+
+button:active, .btn:active {
+    transform: scale(0.98);
+}
+
+/* Estilos específicos para Saldo (Dashboard) */
+#balance-display, .saldo {
+    font-size: 3rem;
+    text-align: center;
+    color: var(--neon-green);
+    text-shadow: var(--neon-glow-strong);
+    margin: 20px 0;
     padding: 20px;
-    margin: 0 auto;
-    box-shadow: 0 0 20px rgba(0,0,0,0.05);
+    border: 2px dashed var(--neon-green);
+    background-color: rgba(57, 255, 20, 0.05);
 }
 
-/* # vista de escritorio y tablet */
-@media (min-width: 577px) {
-    .container {
-        margin-top: 40px !important;
-        margin-bottom: 40px;
-        min-height: auto;
-        border-radius: 20px;
-    }
+/* Listas (Historial y Contactos) */
+ul {
+    list-style: none;
+    padding: 0;
 }
 
-/* # vista móvil */
-@media (max-width: 576px) {
-    .container {
-        margin-top: 0 !important;
-        border-radius: 0;
-    }
+li {
+    background-color: rgba(255, 255, 255, 0.02);
+    border-bottom: 1px solid var(--dim-green);
+    padding: 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: background 0.3s;
+}
 
-    .btn {
-        width: 100%;
-        padding: 12px;
-        margin-bottom: 8px;
-    }
+li:hover {
+    background-color: var(--dim-green);
+    color: #fff;
+    cursor: default;
+}
+
+/* Enlaces secundarios */
+a {
+    color: var(--dim-green);
+    text-decoration: none;
+    font-size: 0.9rem;
+    display: block;
+    text-align: center;
+    margin-top: 20px;
+    transition: color 0.3s;
+}
+
+a:hover {
+    color: var(--neon-green);
+    text-shadow: 0 0 5px var(--neon-green);
+    text-decoration: underline;
+}
+
+/* Scrollbar personalizada (Webkit) */
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+::-webkit-scrollbar-track {
+    background: var(--bg-color); 
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--dim-green); 
+    border: 1px solid var(--neon-green);
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: var(--neon-green); 
 }

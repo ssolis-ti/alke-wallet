@@ -6,8 +6,9 @@ Este documento detalla la arquitectura, estructura y flujo de trabajo del proyec
 El proyecto sigue una arquitectura Modular, Se separa claramente la Estructura (HTML), el Estilo (CSS) y la Lógica (Javascript).
 
 ### Conceptos Clave:
-*   **Estado Centralizado:** Todo el estado de la aplicación (usuario, saldo, movimientos) vive en un único objeto (`walletState` en `config.js`) y se guarda en el navegador (`localStorage`).
-*   **Separación de Intereses**
+* Todo el estado de la aplicación (usuario, saldo, movimientos) vive en un único objeto (`walletState` en `config.js`) y se guarda en el navegador (`localStorage`).
+
+*   **Separación**
     *   `auth.js`: Solo maneja login/logout.
     *   `wallet.js`: Solo maneja dinero (depósitos/envíos).
     *   `ui.js`: Solo maneja lo que se ve en pantalla.
