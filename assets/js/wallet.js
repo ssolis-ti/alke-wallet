@@ -1,11 +1,12 @@
 // # lógica de depósitos y envíos
 $(document).ready(function () {
-    // # función para cargar contactos
+    // # función para cargar contactos en el autocompletado
     const loadTransferContacts = () => {
-        const contactSelect = $('#transfer-contact');
-        contactSelect.find('option:not(:first)').remove();
+        const datalist = $('#contacts-list-data');
+        datalist.empty(); // # limpiamos sugerencias anteriores
         walletState.contacts.forEach(c => {
-            contactSelect.append(`<option value="${c.email}">${c.name}</option>`);
+            // # agregamos el nombre como opción y el email como valor sugerido
+            datalist.append(`<option value="${c.email}">${c.name}</option>`);
         });
     };
 

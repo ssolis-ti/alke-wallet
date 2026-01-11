@@ -66,10 +66,11 @@
                         <div class="accordion-body">
                             <form id="send-form">
                                 <div class="mb-3">
-                                    <label>Contacto (Email)</label>
-                                    <select id="transfer-contact" class="form-select">
-                                        <option value="" selected disabled>Seleccione un contacto</option>
-                                    </select>
+                                    <label>Buscar Contacto (Nombre o Email)</label>
+                                    <input type="text" id="transfer-contact" class="form-control"
+                                        list="contacts-list-data" placeholder="Escriba para buscar..." required
+                                        autocomplete="off">
+                                    <datalist id="contacts-list-data"></datalist>
                                 </div>
                                 <div class="mb-3">
                                     <label>Monto</label>

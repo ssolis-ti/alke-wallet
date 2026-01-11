@@ -22,10 +22,10 @@
 
         <form id="send-form" class="my-4 mx-auto" style="max-width: 400px; text-align: left;">
             <div class="mb-3">
-                <label class="form-label">Contacto (Email)</label>
-                <select id="transfer-contact" class="form-select" required>
-                    <option value="" selected disabled>Seleccione un contacto</option>
-                </select>
+                <label class="form-label">Buscar Contacto (Nombre o Email)</label>
+                <input type="text" id="transfer-contact" class="form-control" list="contacts-list-data"
+                    placeholder="Escriba para buscar..." required autocomplete="off">
+                <datalist id="contacts-list-data"></datalist>
                 <div class="form-text text-end"><a href="contacts.html">Gestionar contactos</a></div>
             </div>
             <div class="mb-3">

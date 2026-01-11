@@ -7,9 +7,16 @@ const startUI = () => {
     }
 
     // # actualizamos nombre y saldo en pantalla
-    $('#user-name').text(walletState.user.name);
-    // # formato de moneda local (clp)
-    $('#user-balance').text(`$${walletState.user.balance.toLocaleString('es-CL')}`);
+    $('#user-name').fadeOut(100).text(walletState.user.name).fadeIn(500);
+
+    // # formato de moneda local (clp) con efecto de resaltado
+    const balanceEl = $('#user-balance');
+    balanceEl.fadeOut(100, function () {
+        $(this).text(`$${walletState.user.balance.toLocaleString('es-CL')}`).fadeIn(500);
+        // # efecto visual de pulso para notar el cambio
+        $(this).css('transition', 'color 0.3s').addClass('text-warning');
+        setTimeout(() => $(this).removeClass('text-warning'), 1000);
+    });
 };
 
 $(document).ready(function () {
