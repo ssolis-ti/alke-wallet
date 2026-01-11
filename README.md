@@ -10,4 +10,4 @@ Estructura simple para proyecto de billetera virtual.
 - `sendmoney.html`: Transferencias
 - `transactions.html`: Historial
 
-Usuario de prueba: demo@alkawallet.cl / 123
+Usuario de prueba: demo@alkewallet.cl / 123
