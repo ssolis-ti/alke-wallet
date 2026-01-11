@@ -13,8 +13,8 @@ const startUI = () => {
 };
 
 $(document).ready(function () {
-    // # solo iniciamos si hay elementos de usuario
-    if ($('#user-name').length) {
+    // # iniciamos si hay elementos de usuario o saldo
+    if ($('#user-name').length || $('#user-balance').length) {
         startUI();
     }
 });
