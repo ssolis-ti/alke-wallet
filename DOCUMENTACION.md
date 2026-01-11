@@ -79,11 +79,9 @@ alke-wallet/
 
 
 ### Ramas Creadas:
-1.  **`main`**: La rama principal. Contiene el código final, probado y funcional.
-2.  **`feature/login`**: Aquí se creó `auth.js` y `login.html`.
-3.  **`feature/menu`**: Aquí se creó el dashboard y `ui.js`.
-4.  **`feature/depositos`**: Aquí se creó la lógica de sumar dinero.
-5.  **`feature/envios`**: Aquí se creó la lógica de restar dinero.
-6.  **`feature/transacciones`**: Aquí se creó el historial.
-7.  **`feature/contactos`**: Aquí se creó la lógica de agenda y `contacts.html`.
-8.  **`feature/estilos`**: Implementación de diseño robótico y mejoras de UI.
+1.  **`main`**: La rama principal. 
+2.  **`feature/login`**:
+3.  **`feature/menu`**: 
+4.  **`feature/depositos`**: 
+5.  **`feature/envios`**: 
+6.  **`feature/transacciones`**: 
